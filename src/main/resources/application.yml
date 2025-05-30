@@ -1,0 +1,34 @@
+spring.application.name: "Micrometer Kafka Iterator NPE"
+
+spring:
+  kafka:
+    bootstrap-servers: broker:29092
+    # Consumer configuration
+    consumer:
+      group-id: example-consumer
+    # Producer configuration
+    producer:
+      client-id: example-producer
+    # Admin configuration
+    admin:
+      client-id: example-admin
+    # Streams configuration
+    streams:
+      application-id: example
+      replication-factor: 1
+      state-store-cache-max-size: 5MB
+      properties:
+        metrics:
+          recording:
+            level: TRACE
+    # Common configuration
+    properties:
+      security.protocol: "PLAINTEXT"
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "*"
+
+management.endpoints.web.exposure.include: "*"
